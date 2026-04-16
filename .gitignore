@@ -1,5 +1,6 @@
 # Ignore .vagrant
 .vagrant*
+JDK?IB/**
 
 # Ignore subdirectories
 !.github/**
