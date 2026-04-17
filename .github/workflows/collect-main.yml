@@ -321,11 +321,12 @@ jobs:
 
           python3 <<'PY'
           import json
+          import os
           from pathlib import Path
 
           trivy_dir = Path("scan-results/trivy")
           grype_dir = Path("scan-results/grype")
-          summary_path = Path("${GITHUB_STEP_SUMMARY}")
+          summary_path = Path(os.environ["GITHUB_STEP_SUMMARY"])
 
           severities = ["CRITICAL", "HIGH", "MEDIUM", "LOW", "UNKNOWN"]
 
