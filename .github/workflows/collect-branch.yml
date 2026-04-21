@@ -361,7 +361,7 @@ jobs:
             scan-images/archives.txt
             templates/
           if-no-files-found: error
-          
+
   Code:
     needs: [Date]
     runs-on: ubuntu-latest
@@ -453,11 +453,11 @@ jobs:
           merge-multiple: true
           path: ${{ vars.COLLECTOR }}
 
-      # Download Binaries if needed
-      # Binaries Downloaded
-
       - name: Copy README to ${{ vars.COLLECTOR }} ISO
         run: cp -v README.md ${{ vars.COLLECTOR }}/
+
+      # Download Binaries if needed
+      # Binaries Downloaded
 
       - name: Show Artifacts
         run: ls -1sh ${{ vars.COLLECTOR }}

@@ -134,6 +134,7 @@ jobs:
           name: ${{ vars.COLLECTOR }}-code-${{ needs.Date.outputs.Date }}.tgz
           path: ${{ vars.COLLECTOR }}-code-${{ needs.Date.outputs.Date }}.tgz*
           if-no-files-found: error
+
   Scan:
     name: Compliance scan (Trivy + Grype)
     runs-on: ubuntu-latest
@@ -418,7 +419,7 @@ jobs:
             scan-images/archives.txt
             templates/
           if-no-files-found: error
-          
+
   MakeISO:
     runs-on: ubuntu-latest
     needs: [Date, Code, Skopeo, Scan]
@@ -442,11 +443,11 @@ jobs:
           merge-multiple: true
           path: ${{ vars.COLLECTOR }}
 
+      - name: Copy Markdowns to ISO
+        run: cp -v *.md ISO/
+
       # Download Binaries if needed
       # Binaries Downloaded
-
-      - name: Copy README to ${{ vars.COLLECTOR }} ISO
-        run: cp -v README.md ${{ vars.COLLECTOR }}/
 
       - name: Show Artifacts
         run: ls -1sh ${{ vars.COLLECTOR }}
@@ -521,7 +522,6 @@ jobs:
         run: ls -1sh ${{ vars.COLLECTOR }}-*.*
 
       # Create Release
-
       - name: Set up git
         run: |
           git config user.name "$(git log -n 1 --pretty=format:%an)"
