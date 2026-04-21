@@ -11,7 +11,7 @@ jobs:
     
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # We check out develop because that is where the 
           # "latest" dev work lives that we want to bump.
