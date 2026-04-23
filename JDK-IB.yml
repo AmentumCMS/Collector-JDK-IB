@@ -8,3 +8,7 @@ registry1.dso.mil:
         ironbank/redhat/openjdk/openjdk17: ^1.17$
         ironbank/redhat/openjdk/openjdk8: ^1.8.0$
         ironbank/redhat/openjdk/openjdk8-slim: ^1.8.0$
+gcr.io:
+  images-by-tag:
+    distroless/java21: nonroot
+    distroless/base-debian12: nonroot
